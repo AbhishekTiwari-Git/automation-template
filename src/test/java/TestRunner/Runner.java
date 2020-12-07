@@ -10,6 +10,7 @@ import io.cucumber.junit.Cucumber;
 			plugin={ "pretty","html:target/cucumber-html-report", "json:target/cucumber.json",
 					"pretty:target/cucumber-pretty.txt",
 			"usage:target/cucumber-usage.json" },
+			dryRun = false,
 			publish=true)
 public class Runner {
 
