@@ -21,8 +21,9 @@ public class nejmStepDef {
 	
 	@When("I am on the nejm home page {string}")
 	public void i_am_on_the_nejm_home_page_something(String site) throws Throwable {
+		String userDir = System.getProperty("user.dir");
 		System.setProperty("webdriver.chrome.driver",
-				"./Drivers/chromedriver.exe");
+				userDir+"/Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(site);
