@@ -1,5 +1,5 @@
 /target/
-.classpath
-.project
-.settings
-debug.log
+/.classpath/
+/.project/
+/.settings/
+/debug.log/
