@@ -18,11 +18,11 @@ public class nejmStepDef {
 
 	WebDriver driver;
 	SoftAssert softAssert = new SoftAssert();
-
+	
 	@When("I am on the nejm home page {string}")
 	public void i_am_on_the_nejm_home_page_something(String site) throws Throwable {
 		System.setProperty("webdriver.chrome.driver",
-				"/Users/abhishektiwari/eclipse-workspace/bdd-demo/src/main/resources/drivers/chromedriver.exe");
+				"/Users/abhishektiwari/Desktop/MMS Automation/automation-test-templates/Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(site);
