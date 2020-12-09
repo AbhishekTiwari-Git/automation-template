@@ -1,19 +1,6 @@
 package com.mms_training.stepDefinitions;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.asserts.SoftAssert;
 
 import com.mms_training.pageobject.NEJMHomePage;
 import com.mms_training_basepage.TestBase;

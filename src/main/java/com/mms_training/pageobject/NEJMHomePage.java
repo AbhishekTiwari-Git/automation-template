@@ -1,13 +1,10 @@
 package com.mms_training.pageobject;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.mms_training_basepage.TestBase;
 
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class NEJMHomePage extends TestBase {
