@@ -28,8 +28,8 @@ public class NEJMHomePage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void openURL(String site) {
-		driver.get(site);
+	public void openURL() {
+		driver.get(prop.getProperty("url"));
 	}
 
 	public boolean verifyHomePageBtns() {

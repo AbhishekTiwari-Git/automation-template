@@ -10,18 +10,16 @@ import io.cucumber.java.en.When;
 
 public class NEJMHomePageStepDef extends TestBase {
 
-	NEJMHomePage nejmHP;
+	NEJMHomePage nejmHP = new NEJMHomePage();
 
-	@When("I am on the nejm home page {string}")
-	public void i_am_on_the_nejm_home_page_something(String site) throws Throwable {
-		nejmHP = new NEJMHomePage();
-		nejmHP.openURL(site);
+	@When("I am on the nejm home page")
+	public void i_am_on_the_nejm_home_page_something() throws Throwable {
+		nejmHP.openURL();
 
 	}
 
 	@Then("I verify the NEJM home page header buttons should be displayed")
 	public void i_verify_the_nejm_home_page_header_buttons_should_be_displayed() throws Throwable {
-		nejmHP = new NEJMHomePage();
 		Assert.assertTrue(nejmHP.verifyHomePageBtns(), "NEJM Home Buttons are not displayed as expected");
 
 	}
