@@ -34,8 +34,7 @@ public class NEJMHomePage extends TestBase {
 
 	public boolean verifyHomePageBtns() {
 		boolean flag = false;
-		boolean nejmHeaderLink = headerLink.getAttribute("href").equalsIgnoreCase("https://www.nejm.org/");
-
+		boolean nejmHomePageTitle = driver.getTitle().equals(prop.getProperty("homePageTitle"));
 		boolean signIn = signInBtn.isDisplayed();
 
 		boolean createAccountButton = createAccountBtn.isDisplayed();
@@ -44,7 +43,7 @@ public class NEJMHomePage extends TestBase {
 
 		boolean nejmHeaderLogo = headerLogo.isDisplayed();
 
-		if ((((nejmHeaderLink == true && signIn == true) && createAccountButton == true) && subscribeButton == true)
+		if ((((nejmHomePageTitle == true && signIn == true) && createAccountButton == true) && subscribeButton == true)
 				&& nejmHeaderLogo == true) {
 			flag=true;
 		}

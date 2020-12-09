@@ -18,8 +18,8 @@ public class NEJMHomePageStepDef extends TestBase {
 
 	}
 
-	@Then("I verify the NEJM home page header buttons should be displayed")
-	public void i_verify_the_nejm_home_page_header_buttons_should_be_displayed() throws Throwable {
+	@Then("I verify the NEJM home page and header buttons should be displayed")
+	public void i_verify_the_nejm_home_page_and_header_buttons_should_be_displayed() throws Throwable {
 		Assert.assertTrue(nejmHP.verifyHomePageBtns(), "NEJM Home Buttons are not displayed as expected");
 
 	}
