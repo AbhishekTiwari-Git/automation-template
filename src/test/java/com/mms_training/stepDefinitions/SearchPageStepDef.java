@@ -1,4 +1,4 @@
-package stepDefinitions;
+package com.mms_training.stepDefinitions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,8 +11,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-import BasePage.TestBase;
-import PageObject.SearchResultsPage;
+import com.mms_training.pageobject.SearchResultsPage;
+import com.mms_training_basepage.TestBase;
+
 import io.cucumber.java.en.Then;
 
 public class SearchPageStepDef extends TestBase {

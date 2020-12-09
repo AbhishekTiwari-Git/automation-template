@@ -1,4 +1,4 @@
-package PageObject;
+package com.mms_training.pageobject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 
-import BasePage.TestBase;
+import com.mms_training_basepage.TestBase;
 
 public class SearchResultsPage extends TestBase {
 

@@ -1,6 +1,7 @@
-package stepDefinitions;
+package com.mms_training.stepDefinitions;
 
-import BasePage.TestBase;
+import com.mms_training_basepage.TestBase;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 

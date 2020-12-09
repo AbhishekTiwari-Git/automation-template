@@ -1,4 +1,4 @@
-package stepDefinitions;
+package com.mms_training.stepDefinitions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,8 +15,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 
-import BasePage.TestBase;
-import PageObject.NEJMHomePage;
+import com.mms_training.pageobject.NEJMHomePage;
+import com.mms_training_basepage.TestBase;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

@@ -1,4 +1,4 @@
-package BasePage;
+package com.mms_training_basepage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
