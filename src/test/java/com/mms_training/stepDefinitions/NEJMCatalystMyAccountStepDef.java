@@ -23,6 +23,11 @@ public class NEJMCatalystMyAccountStepDef extends TestBase {
 	public void i_register_user_with_the_following_details(DataTable dataTable) throws InterruptedException {
 		nejmCatalystPage.registerUser(dataTable);
 	}
+	
+	@When("I sign out of the application")
+	public void i_sign_out_of_the_application() throws InterruptedException {
+		nejmCatalystPage.signOut();
+	}
 
 	@When("I navigate to the Auth token url")
 	public void i_navigate_to_the_Auth_token_url() {

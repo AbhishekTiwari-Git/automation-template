@@ -3,32 +3,34 @@ package com.mms_training.pageobject;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.json.simple.JSONObject;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.mms_training_basepage.TestBase;
+import com.mms_training_utils.Utility;
 
 import io.cucumber.datatable.DataTable;
-import io.cucumber.gherkin.internal.com.eclipsesource.json.JsonObject;
-
 import static io.restassured.RestAssured.*;
 
 public class NEJMCatalystMyAccountPage extends TestBase {
-
+	
+	Utility utils = new Utility();
+	
 	@FindBy(xpath = "//div[@class='header_top-bar_right']//a[@title='Create Account']/span")
 	WebElement createAccountBtn;
-
+	
+	public By emailInputFld = By.name("uccEmail");
+	
 	@FindBy(name = "uccEmail")
-	WebElement emailInputFld;
-
+	WebElement emailInptFld;
+	
+	public By pwdInputFld = By.name("uccPwd");
+	
 	@FindBy(name = "uccPwd")
-	WebElement pwdInputFld;
+	WebElement pwdInptFld;
 
 	@FindBy(name = "uccFirstName")
 	WebElement fnInputFld;
@@ -73,7 +75,9 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 	WebElement registerBtn;
 
 	@FindBy(xpath = "//div[@class='header_top-bar_right']//a[@title='TestQA_fn TestQA_ln']")
-	WebElement loggedInUserID;
+	WebElement loggedInUserId;
+
+	public By loggedInUserID = By.xpath("//div[@class='header_top-bar_right']//a[@title='TestQA_fn TestQA_ln']");
 
 	@FindBy(xpath = "//div[@class='infoSoftAuth']")
 	WebElement summaryPageSignIn;
@@ -93,6 +97,13 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 	@FindBy(xpath = "//ul[@class='my-account_nav-list']//a[@title='Saved']")
 	WebElement sideNavSavedBtn;
 
+	public By uccModalCloseBtn = By.xpath("//button[@class='ucc-modal-close']");
+
+	@FindBy(xpath = "//div[@class='header_top-bar_right']//a[@title='Sign Out']")
+	WebElement signOutBtn;
+
+	public By signInBtn = By.xpath("//div[@id='signInEmbedded']//h1[text()='Sign In']");
+
 	LocalDateTime timeStamp = LocalDateTime.now();
 	String email, password, response;
 	CloseableHttpResponse httpResponse;
@@ -109,24 +120,22 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 
 	public void registerUser(DataTable dataTable) throws InterruptedException {
 		List<Map<String, String>> userdata = dataTable.asMaps(String.class, String.class);
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].click();", createAccountBtn);
-
+		utils.executeJavascript("arguments[0].click();", createAccountBtn);
 		for (Map<String, String> data : userdata) {
 			email = (data.get("Email") + timeStamp.getNano() + "@nejmemail.com");
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			emailInputFld.click();
-			emailInputFld.sendKeys(email);
+			utils.waitForElementToBeVisible(emailInputFld).click();
+			emailInptFld.clear();
+			emailInptFld.sendKeys(email);
 			password = (data.get("Password"));
-			pwdInputFld.click();
-			pwdInputFld.sendKeys(password);
+			utils.waitForElementToBeVisible(pwdInputFld).click();
+			pwdInptFld.sendKeys(password);
 			fnInputFld.sendKeys(data.get("First Name"));
 			lnInputFld.sendKeys(data.get("Last Name"));
 			suffixDD.click();
 			suffixOption.click();
 			primarySpeciltyDD.click();
 			primarySpecltyOption.click();
-			executor.executeScript("arguments[0].scrollIntoView(true);", roleDD);
+			utils.scroll("arguments[0].scrollIntoView(true);", roleDD);
 			roleDD.click();
 			roleOption.click();
 			placeOfWork.click();
@@ -147,16 +156,21 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 
 	}
 
+	public void signOut() throws InterruptedException {
+		utils.waitForElementToBeClickable(uccModalCloseBtn).click();
+		utils.waitForElementToBeClickable(loggedInUserID).click();
+		signOutBtn.click();
+		utils.waitForElementToBeVisible(signInBtn);
+	}
+
 	public void navigateToRespUrl() {
 		urlTest = response.split(",");
 		authTokenUrl = urlTest[1].split("//");
-		driver.manage().deleteAllCookies();
-		driver.navigate().refresh();
 		driver.get("https://" + authTokenUrl[1].replace("}", ""));
 	}
 
 	public boolean verifyAutomaticLogin() {
-		return loggedInUserID.isDisplayed();
+		return (loggedInUserId).isDisplayed();
 	}
 
 	public String verifySummarySection() {
