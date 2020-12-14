@@ -1,0 +1,164 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-12-11T17:22:55.944Z",
+        "before": [
+          {
+            "result": {
+              "duration": 1805103200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.mms_training.stepDefinitions.CucumberHooksStepDef.setUp()"
+            }
+          }
+        ],
+        "line": 8,
+        "name": "Verify My Account User information using web auth API",
+        "description": "",
+        "id": "nejm-home-page-validation-feature;verify-my-account-user-information-using-web-auth-api",
+        "after": [
+          {
+            "result": {
+              "duration": 165001300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.mms_training.stepDefinitions.CucumberHooksStepDef.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5571479700,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I am on My Account NEJM Catalyst page",
+            "match": {
+              "location": "com.mms_training.stepDefinitions.NEJMCatalystMyAccountStepDef.i_am_on_my_account_nejm_catalyst_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4055998200,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I Register user with the following details",
+            "match": {
+              "location": "com.mms_training.stepDefinitions.NEJMCatalystMyAccountStepDef.i_register_user_with_the_following_details(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Email",
+                  "Password",
+                  "First Name",
+                  "Last Name",
+                  "Name of Organization"
+                ]
+              },
+              {
+                "cells": [
+                  "TestQA",
+                  "Test@1234",
+                  "TestQA_fn",
+                  "TestQA_ln",
+                  "MMS"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1917058000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I navigate to the Auth token url",
+            "match": {
+              "location": "com.mms_training.stepDefinitions.NEJMCatalystMyAccountStepDef.i_navigate_to_the_Auth_token_url()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1525052000,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I verify that user is logged in automatically",
+            "match": {
+              "location": "com.mms_training.stepDefinitions.NEJMCatalystMyAccountStepDef.i_verify_that_user_is_logged_in_automatically()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1629596100,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I verify My Account Saved section displayed with a message",
+            "match": {
+              "location": "com.mms_training.stepDefinitions.NEJMCatalystMyAccountStepDef.i_verify_my_account_saved_section_displayed_with_a_message()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1231851600,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I verify My Account Alert Section displays the following checkboxes \"Connect\" \"Editors\u0027 Picks\" \"General Information\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Connect\"",
+                  "offset": 68
+                },
+                {
+                  "val": "\"Editors\u0027 Picks\"",
+                  "offset": 78
+                },
+                {
+                  "val": "\"General Information\"",
+                  "offset": 95
+                }
+              ],
+              "location": "com.mms_training.stepDefinitions.NEJMCatalystMyAccountStepDef.i_verify_my_account_alert_section_displays_the_following_checkboxes(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 909947300,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I verify that My account summary section displayed with a message",
+            "match": {
+              "location": "com.mms_training.stepDefinitions.NEJMCatalystMyAccountStepDef.i_verify_that_my_account_summary_section_displayed_with_a_message()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "NEJM Home Page Validation Feature",
+    "description": "",
+    "id": "nejm-home-page-validation-feature",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/Features/nejm.feature",
+    "tags": []
+  }
+]

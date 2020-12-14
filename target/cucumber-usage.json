@@ -1,0 +1,128 @@
+[
+  {
+    "source": "I am on My Account NEJM Catalyst page",
+    "steps": [
+      {
+        "name": "I am on My Account NEJM Catalyst page",
+        "aggregatedDurations": {
+          "median": 5.5714797,
+          "average": 5.5714797
+        },
+        "durations": [
+          {
+            "duration": 5.5714797,
+            "location": "file:///C:/Users/atiwari/cucumber-framework/automation-test-templates/src/test/resources/Features/nejm.feature:9"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "I Register user with the following details",
+    "steps": [
+      {
+        "name": "I Register user with the following details",
+        "aggregatedDurations": {
+          "median": 4.0559982,
+          "average": 4.0559982
+        },
+        "durations": [
+          {
+            "duration": 4.0559982,
+            "location": "file:///C:/Users/atiwari/cucumber-framework/automation-test-templates/src/test/resources/Features/nejm.feature:10"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "I navigate to the Auth token url",
+    "steps": [
+      {
+        "name": "I navigate to the Auth token url",
+        "aggregatedDurations": {
+          "median": 1.917058,
+          "average": 1.917058
+        },
+        "durations": [
+          {
+            "duration": 1.917058,
+            "location": "file:///C:/Users/atiwari/cucumber-framework/automation-test-templates/src/test/resources/Features/nejm.feature:13"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "I verify that user is logged in automatically",
+    "steps": [
+      {
+        "name": "I verify that user is logged in automatically",
+        "aggregatedDurations": {
+          "median": 1.525052,
+          "average": 1.525052
+        },
+        "durations": [
+          {
+            "duration": 1.525052,
+            "location": "file:///C:/Users/atiwari/cucumber-framework/automation-test-templates/src/test/resources/Features/nejm.feature:14"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "I verify My Account Saved section displayed with a message",
+    "steps": [
+      {
+        "name": "I verify My Account Saved section displayed with a message",
+        "aggregatedDurations": {
+          "median": 1.6295961,
+          "average": 1.6295961
+        },
+        "durations": [
+          {
+            "duration": 1.6295961,
+            "location": "file:///C:/Users/atiwari/cucumber-framework/automation-test-templates/src/test/resources/Features/nejm.feature:15"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "I verify My Account Alert Section displays the following checkboxes {string} {string} {string}",
+    "steps": [
+      {
+        "name": "I verify My Account Alert Section displays the following checkboxes \"Connect\" \"Editors\u0027 Picks\" \"General Information\"",
+        "aggregatedDurations": {
+          "median": 1.2318516,
+          "average": 1.2318516
+        },
+        "durations": [
+          {
+            "duration": 1.2318516,
+            "location": "file:///C:/Users/atiwari/cucumber-framework/automation-test-templates/src/test/resources/Features/nejm.feature:16"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "I verify that My account summary section displayed with a message",
+    "steps": [
+      {
+        "name": "I verify that My account summary section displayed with a message",
+        "aggregatedDurations": {
+          "median": 0.9099473,
+          "average": 0.9099473
+        },
+        "durations": [
+          {
+            "duration": 0.9099473,
+            "location": "file:///C:/Users/atiwari/cucumber-framework/automation-test-templates/src/test/resources/Features/nejm.feature:17"
+          }
+        ]
+      }
+    ]
+  }
+]

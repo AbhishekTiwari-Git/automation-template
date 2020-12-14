@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: NEJM Home Page Validation Feature
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 28.346 s <<< FAILURE! - in NEJM Home Page Validation Feature
+NEJM Home Page Validation Feature.Verify My Account User information using web auth API  Time elapsed: 26.021 s  <<< ERROR!
+org.openqa.selenium.WebDriverException: 
+java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:18265
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'VM-ATIWARI-10D', ip: '172.16.141.126', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.1'
+Driver info: driver.version: FirefoxDriver
+Caused by: java.net.ConnectException: Failed to connect to localhost/[0:0:0:0:0:0:0:1]:18265
+Caused by: java.net.ConnectException: Connection refused: no further information
+
+NEJM Home Page Validation Feature.Verify My Account User information using web auth API  Time elapsed: 26.023 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.close()" because "com.mms_training.stepDefinitions.CucumberHooksStepDef.driver" is null
+
