@@ -210,7 +210,6 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 
 	public String verifySavedSection() {
 		sideNavSavedBtn.click();
-		System.out.println("Saved Section Message===>" + savedSectionMsg.getText());
 		String saveSectnMsg = savedSectionMsg.getText();
 		return saveSectnMsg;
 	}
