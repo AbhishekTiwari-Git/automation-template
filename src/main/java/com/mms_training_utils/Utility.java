@@ -1,6 +1,5 @@
 package com.mms_training_utils;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,13 +8,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.mms_training_basepage.TestBase;
 
 public class Utility extends TestBase {
-	WebDriverWait wait = new WebDriverWait(driver, 20);
-	public WebElement waitForElementToBeVisible(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	long timeout = Long.parseLong(prop.getProperty("waitTimeout"));
+	WebDriverWait wait = new WebDriverWait(driver, timeout);
+	
+	
+	public void waitForElementToBeVisible(WebElement element) {
+         wait.until(ExpectedConditions.visibilityOf(element));
     }
 	
-	public WebElement waitForElementToBeClickable(By locator) {
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+	public WebElement waitForElementToBeClickable(WebElement element) {
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 	
 	public void executeJavascript(String script, WebElement element) {

@@ -16,19 +16,15 @@ import io.cucumber.datatable.DataTable;
 import static io.restassured.RestAssured.*;
 
 public class NEJMCatalystMyAccountPage extends TestBase {
-	
+
 	Utility utils = new Utility();
-	
+
 	@FindBy(xpath = "//div[@class='header_top-bar_right']//a[@title='Create Account']/span")
 	WebElement createAccountBtn;
-	
-	public By emailInputFld = By.name("uccEmail");
-	
+
 	@FindBy(name = "uccEmail")
 	WebElement emailInptFld;
-	
-	public By pwdInputFld = By.name("uccPwd");
-	
+
 	@FindBy(name = "uccPwd")
 	WebElement pwdInptFld;
 
@@ -77,8 +73,6 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 	@FindBy(xpath = "//div[@class='header_top-bar_right']//a[@title='TestQA_fn TestQA_ln']")
 	WebElement loggedInUserId;
 
-	public By loggedInUserID = By.xpath("//div[@class='header_top-bar_right']//a[@title='TestQA_fn TestQA_ln']");
-
 	@FindBy(xpath = "//div[@class='infoSoftAuth']")
 	WebElement summaryPageSignIn;
 
@@ -97,12 +91,14 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 	@FindBy(xpath = "//ul[@class='my-account_nav-list']//a[@title='Saved']")
 	WebElement sideNavSavedBtn;
 
-	public By uccModalCloseBtn = By.xpath("//button[@class='ucc-modal-close']");
+	@FindBy(xpath = "//button[@class='ucc-modal-close']")
+	WebElement uccModalCloseBtn;
 
 	@FindBy(xpath = "//div[@class='header_top-bar_right']//a[@title='Sign Out']")
 	WebElement signOutBtn;
 
-	public By signInBtn = By.xpath("//div[@id='signInEmbedded']//h1[text()='Sign In']");
+	@FindBy(xpath = "//div[@id='signInEmbedded']//h1[text()='Sign In']")
+	WebElement signInBtn;
 
 	LocalDateTime timeStamp = LocalDateTime.now();
 	String email, password, response;
@@ -123,33 +119,35 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 		utils.executeJavascript("arguments[0].click();", createAccountBtn);
 		for (Map<String, String> data : userdata) {
 			email = (data.get("Email") + timeStamp.getNano() + "@nejmemail.com");
-			utils.waitForElementToBeVisible(emailInputFld).click();
+			utils.waitForElementToBeClickable(emailInptFld).click();
 			emailInptFld.clear();
 			emailInptFld.sendKeys(email);
 			password = (data.get("Password"));
-			utils.waitForElementToBeVisible(pwdInputFld).click();
+			utils.waitForElementToBeClickable(pwdInptFld).click();
 			pwdInptFld.sendKeys(password);
+			utils.waitForElementToBeClickable(fnInputFld).click();
 			fnInputFld.sendKeys(data.get("First Name"));
+			utils.waitForElementToBeClickable(lnInputFld).click();
 			lnInputFld.sendKeys(data.get("Last Name"));
-			suffixDD.click();
-			suffixOption.click();
-			primarySpeciltyDD.click();
-			primarySpecltyOption.click();
+			utils.waitForElementToBeClickable(suffixDD).click();
+			utils.waitForElementToBeClickable(suffixOption).click();
+			utils.waitForElementToBeClickable(primarySpeciltyDD).click();
+			utils.waitForElementToBeClickable(primarySpecltyOption).click();
 			utils.scroll("arguments[0].scrollIntoView(true);", roleDD);
-			roleDD.click();
-			roleOption.click();
-			placeOfWork.click();
-			placeOfWorkOption.click();
-			nameOfOrg.sendKeys(data.get("Name of Organization"));
-			countryDD.click();
-			countryOption.click();
-			registerBtn.click();
+			utils.waitForElementToBeClickable(roleDD).click();
+			utils.waitForElementToBeClickable(roleOption).click();
+			utils.waitForElementToBeClickable(placeOfWork).click();
+			utils.waitForElementToBeClickable(placeOfWorkOption).click();
+			utils.waitForElementToBeClickable(nameOfOrg).sendKeys(data.get("Name of Organization"));
+			utils.waitForElementToBeClickable(countryDD).click();
+			utils.waitForElementToBeClickable(countryOption).click();
+			utils.waitForElementToBeClickable(registerBtn).click();
 		}
 
 		JSONObject body_json = new JSONObject();
 		body_json.put("username", email);
 		body_json.put("password", password);
-		body_json.put("exp", "2021-08-03T15:33:24.583Z");
+		body_json.put("exp", prop.get("expiryTimestamp"));
 
 		response = given().baseUri("https://myaccount.nejm-qa.org").headers("Content-Type", "application/json")
 				.body(body_json).when().post("/qa/generateSsoUrlToken").getBody().asString();
@@ -157,8 +155,8 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 	}
 
 	public void signOut() throws InterruptedException {
-		utils.waitForElementToBeClickable(uccModalCloseBtn).click();
-		utils.waitForElementToBeClickable(loggedInUserID).click();
+		utils.executeJavascript("arguments[0].click();", uccModalCloseBtn);
+		utils.waitForElementToBeClickable(loggedInUserId).click();
 		signOutBtn.click();
 		utils.waitForElementToBeVisible(signInBtn);
 	}
@@ -184,7 +182,7 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 		sideNavAlertBtn.click();
 		List<WebElement> alertsCheckboxesList = alertSectionChkbxs;
 		for (WebElement checkboxes : alertsCheckboxesList) {
-			String value = checkboxes.getText();
+			String value = checkboxes.getText().trim();
 			switch (value) {
 			case "Connect":
 				actualCheckBx1 = checkboxes.getText().equals(expectedCheckBx1);
