@@ -99,6 +99,9 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 
 	@FindBy(xpath = "//div[@id='signInEmbedded']//h1[text()='Sign In']")
 	WebElement signInBtn;
+	
+	@FindBy(xpath = "//a[text()='Take me to my account']")
+	WebElement takeMeToMyAccountDialog;
 
 	LocalDateTime timeStamp = LocalDateTime.now();
 	String email, password, response;
@@ -152,11 +155,11 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 
 		response = given().baseUri("https://myaccount.nejm-qa.org").headers("Content-Type", "application/json")
 				.body(body_json).when().post("/qa/generateSsoUrlToken").getBody().asString();
-
+		utils.waitForElementToBeVisible(takeMeToMyAccountDialog);
 	}
 
 	public void signOut() throws InterruptedException {
-		utils.waitForElementToBeVisible(uccModalCloseBtn);
+		utils.waitForElementToBeClickable(uccModalCloseBtn);
 		utils.executeJavascript("arguments[0].click();", uccModalCloseBtn);
 		utils.waitForElementToBeClickable(loggedInUserId).click();
 		signOutBtn.click();
