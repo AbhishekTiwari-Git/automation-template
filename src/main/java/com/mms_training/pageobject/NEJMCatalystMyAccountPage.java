@@ -142,6 +142,7 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 			utils.waitForElementToBeClickable(countryDD).click();
 			utils.waitForElementToBeClickable(countryOption).click();
 			utils.waitForElementToBeClickable(registerBtn).click();
+
 		}
 
 		JSONObject body_json = new JSONObject();
@@ -155,6 +156,7 @@ public class NEJMCatalystMyAccountPage extends TestBase {
 	}
 
 	public void signOut() throws InterruptedException {
+		utils.waitForElementToBeVisible(uccModalCloseBtn);
 		utils.executeJavascript("arguments[0].click();", uccModalCloseBtn);
 		utils.waitForElementToBeClickable(loggedInUserId).click();
 		signOutBtn.click();

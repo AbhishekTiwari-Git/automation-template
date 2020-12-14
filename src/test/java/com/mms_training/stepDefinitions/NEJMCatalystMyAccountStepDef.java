@@ -39,8 +39,8 @@ public class NEJMCatalystMyAccountStepDef extends TestBase {
 		Assert.assertTrue(nejmCatalystPage.verifyAutomaticLogin(), "User is not Logged In automatically");
 	}
 
-	@Then("I verify that My account summary section displayed with a message")
-	public void i_verify_that_my_account_summary_section_displayed_with_a_message() {
+	@Then("I verify that My account summary section is not accessible and displays a message to sign in")
+	public void i_verify_that_my_account_summary_section_is_not_accessible_and_displays_a_message_to_sign_in() {
 		String expectedMsg = prop.getProperty("summarySectionMsg");
 		Assert.assertEquals(nejmCatalystPage.verifySummarySection(), expectedMsg, "Summary Page is Accessible");
 	}
