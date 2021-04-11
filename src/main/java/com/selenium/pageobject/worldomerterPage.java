@@ -20,7 +20,7 @@ public class worldomerterPage extends TestBase {
 	WebElement mainCountr;
 
 	@FindBy(xpath = "//div[contains(@class,'sec-box')]//span[@class='rts-counter']")
-	List<WebElement> popNums;
+	List<WebElement> popNumsList;
 
 	public worldomerterPage() {
 		PageFactory.initElements(driver, this);
@@ -38,25 +38,25 @@ public class worldomerterPage extends TestBase {
 		while (System.currentTimeMillis() < end_time) {
 			System.out.println("=================================================================");
 			System.out.println("Current World Population==>" + mainCountr.getText());
-			for (int i = 0; i < popNums.size(); i++) {
+			for (int i = 0; i < popNumsList.size(); i++) {
 				switch (i + 1) {
 				case 1:
-					System.out.println("Birth Today===>" + popNums.get(i).getText());
+					System.out.println("Birth Today===>" + popNumsList.get(i).getText());
 					break;
 				case 2:
-					System.out.println("Deaths Today===>" + popNums.get(i).getText());
+					System.out.println("Deaths Today===>" + popNumsList.get(i).getText());
 					break;
 				case 3:
-					System.out.println("Gwroth Today===>" + popNums.get(i).getText());
+					System.out.println("Gwroth Today===>" + popNumsList.get(i).getText());
 					break;
 				case 4:
-					System.out.println("Births this yr===>" + popNums.get(i).getText());
+					System.out.println("Births this yr===>" + popNumsList.get(i).getText());
 					break;
 				case 5:
-					System.out.println("Deaths this year===>" + popNums.get(i).getText());
+					System.out.println("Deaths this year===>" + popNumsList.get(i).getText());
 					break;
 				case 6:
-					System.out.println("Growth This Year===>" + popNums.get(i).getText());
+					System.out.println("Growth This Year===>" + popNumsList.get(i).getText());
 					break;
 				}
 
